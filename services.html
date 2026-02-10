@@ -34,3 +34,376 @@
         radial-gradient(900px 650px at 88% 10%, rgba(201,162,74,.13), transparent 55%),
         radial-gradient(1100px 900px at 50% 120%, rgba(201,162,74,.06), transparent 60%),
         var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      background: linear-gradient(to bottom, rgba(6,6,7,.92), rgba(6,6,7,.55));
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar{
+      max-width:var(--max); margin:0 auto;
+      padding:14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:900; letter-spacing:.3px;
+    }
+    .logo{
+      width:48px; height:48px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 14px 30px rgba(179,13,28,.18);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 55%),
+        conic-gradient(from 200deg, var(--gold), var(--red2), var(--gold));
+      overflow:hidden;
+      display:grid; place-items:center;
+      flex:0 0 auto;
+    }
+    .logo img{width:100%; height:100%; object-fit:contain; display:block}
+    .brand small{display:block; color:var(--muted); font-weight:650; letter-spacing:.2px; margin-top:2px}
+
+    nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; align-items:center}
+    nav a{padding:9px 11px; border-radius:12px; color:var(--muted)}
+    nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+      font-weight:850;
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, filter .12s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.07)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--red2), var(--red));
+      border-color: rgba(225,11,34,.45);
+    }
+    .btn.primary:hover{border-color: rgba(224,195,106,.35); filter: brightness(1.05)}
+    .btn.ghost{background: rgba(0,0,0,.18)}
+
+    /* Layout */
+    .wrap{max-width:var(--max); margin:0 auto; padding: 22px 18px 78px}
+    .hero{
+      position:relative;
+      padding: 54px 0 28px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      align-items:start;
+    }
+    @media (max-width: 920px){
+      header{position:static}
+      .hero{grid-template-columns:1fr; padding-top:30px}
+    }
+
+    /* Hero glow layers (mimic the image effects) */
+    .glow{
+      position:absolute; inset:-40px -20px auto -20px;
+      height: 360px;
+      background:
+        radial-gradient(closest-side at 18% 25%, rgba(225,11,34,.22), transparent 65%),
+        radial-gradient(closest-side at 78% 10%, rgba(201,162,74,.18), transparent 70%),
+        radial-gradient(closest-side at 50% 80%, rgba(255,255,255,.06), transparent 70%);
+      filter: blur(2px);
+      opacity: .95;
+      pointer-events:none;
+    }
+
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      color:var(--muted); font-weight:700; letter-spacing:.2px;
+      margin-bottom: 14px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--red2), var(--gold));
+      box-shadow: 0 0 0 4px rgba(179,13,28,.15);
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(34px, 4.7vw, 62px);
+      line-height: 1.03;
+      letter-spacing: -.7px;
+    }
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size: clamp(15px, 1.6vw, 18px);
+      line-height: 1.7;
+      max-width: 62ch;
+    }
+
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+
+    /* Accent strip (gold/red bar like your mockup) */
+    .strip{
+      margin: 26px 0 10px;
+      border-radius: 999px;
+      height: 12px;
+      background: linear-gradient(90deg, var(--gold), var(--red), var(--red2), var(--red), var(--gold));
+      box-shadow: 0 12px 34px rgba(179,13,28,.18);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .gold{color:var(--gold2)}
+
+    /* Cards / sections */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .card h3{margin:0 0 8px}
+    .p{margin:0; color:var(--muted); line-height:1.7}
+
+    .statgrid{display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top: 14px}
+    @media (max-width: 520px){ .statgrid{grid-template-columns:1fr} }
+    .mini{
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      background: rgba(0,0,0,.25);
+    }
+    .mini b{display:block; font-size:18px}
+    .mini span{color:var(--muted); font-size:13px}
+
+    section{padding: 34px 0}
+    .h2{font-size:22px; margin:0 0 10px}
+
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px}
+    @media (max-width: 920px){ .grid3{grid-template-columns:1fr} }
+
+    .feature{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.25));
+      box-shadow: 0 12px 32px rgba(0,0,0,.28);
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      font-weight:850;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(201,162,74,.35);
+      background: rgba(201,162,74,.10);
+      color: var(--gold2);
+      margin-bottom: 10px;
+    }
+
+    .contact{display:grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items:start}
+    @media (max-width: 920px){ .contact{grid-template-columns:1fr} }
+
+    form{display:grid; gap:10px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.35);
+      color: var(--text);
+      outline:none;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(201,162,74,.45);
+      box-shadow: 0 0 0 4px rgba(201,162,74,.12);
+    }
+    textarea{min-height:120px; resize:vertical}
+
+    footer{
+      margin-top:44px;
+      padding-top:18px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+      display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap;
+    }
+
+    /* Subtle reveal */
+    .reveal{opacity:0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease}
+    .reveal.on{opacity:1; transform:none}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <a class="brand" href="#top" aria-label="SBU Global Investments LLC">
+        <div class="logo" aria-hidden="true">
+          <img src="assets/logo.png" alt="SBU Global Investments LLC Logo">
+        </div>
+        <div>
+          SBU Global Investments <span class="gold">LLC</span>
+          <small>International Investing • Consulting • Customized Services</small>
+        </div>
+      </a>
+
+      <nav aria-label="Primary">
+  <a href="services.html">Services</a>
+  <a href="industries.html">Industries</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="top">
+    <div class="hero">
+      <div class="glow" aria-hidden="true"></div>
+
+      <div class="reveal">
+        <div class="kicker"><span class="dot"></span> Global strategy. Local execution.</div>
+        <h1>Trade expansion, industrial safety, and commercial growth — built for execution.</h1>
+        <p class="sub">
+          SBU Global Investments LLC supports manufacturers, entrepreneurs, operators, and investors with practical strategy and delivery —
+          from market entry and distribution to fire, health &amp; safety compliance and commercial execution.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="#contact">Request a Consultation</a>
+          <a class="btn ghost" href="#services">Learn More</a>
+        </div>
+
+        <div class="strip" aria-hidden="true"></div>
+
+        <p class="p"><span class="gold" style="font-weight:850;">Focused on outcomes:</span> clarity, risk management, and momentum — without fluff.</p>
+      </div>
+
+      <aside class="card reveal">
+        <h3>What we help with</h3>
+        <p class="p">A flexible, client-first approach designed around your needs.</p>
+
+        <div class="statgrid">
+        <div class="statgrid">
+          <div class="mini"><b>Trade &amp; Distribution</b><span>Market entry &amp; partner onboarding</span></div>
+          <div class="mini"><b>Fire, Health &amp; Safety</b><span>Audits, risk assessments, compliance</span></div>
+          <div class="mini"><b>Commercial Advisory</b><span>Go-to-market, sales assets, execution</span></div>
+          <div class="mini"><b>Investing &amp; Consulting</b><span>Cross-border strategy &amp; support</span></div>
+        </div>
+        
+    </div>
+
+    <section id="services" class="reveal">
+      <h2 class="h2">Services</h2>
+      <div class="grid3">
+        <div class="feature">
+          <div class="badge">Trade &amp; Distribution (Market Entry)</div>
+          <p class="p">Market entry strategy, distributor onboarding, export coordination, and territory development — built for execution.</p>
+        </div>
+        <div class="feature">
+          <div class="badge">Fire, Health &amp; Industrial Safety</div>
+          <p class="p">Fire risk assessments, HSE audits, compliance guidance, and safety program implementation for factories and plants.</p>
+        </div>
+        <div class="feature">
+          <div class="badge">Marketing &amp; Commercial Advisory</div>
+          <p class="p">Positioning, go-to-market planning, and sales materials that help operators win distribution and grow revenue.</p>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="industries" class="reveal">
+      <h2 class="h2">Industries</h2>
+      <div class="card">
+        <p class="p" style="margin-bottom:10px;">
+          We work in operational environments where <span class="gold" style="font-weight:850;">execution</span>,
+          <span class="gold" style="font-weight:850;">compliance</span>, and performance matter.
+        </p>
+      </div>
+      <div class="grid3" style="margin-top:14px;">
+        <div class="feature">
+          <div class="badge">Beverage &amp; FMCG</div>
+          <p class="p">Brand expansion, distribution partnerships, and trade rollout support.</p>
+        </div>
+        <div class="feature">
+          <div class="badge">Manufacturing &amp; Plants</div>
+          <p class="p">Safety audits, risk mitigation, and compliance-focused operational improvements.</p>
+        </div>
+        <div class="feature">
+          <div class="badge">Warehousing &amp; Logistics</div>
+          <p class="p">Facility safety, workflows, and practical commercial execution support.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="about" class="reveal">
+      <h2 class="h2">About</h2>
+      <div class="card">
+        <p class="p" style="margin-bottom:10px;">
+          SBU Global Investments LLC works across industries with a simple principle:
+          <span class="gold" style="font-weight:850;">custom solutions</span> based on client needs.
+        </p>
+        <p class="p">
+          Whether you’re expanding into new markets, strengthening facility safety, or improving commercial performance,
+          we bring structure, speed, and clarity — while respecting your goals and constraints.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <h2 class="h2">Contact</h2>
+      <div class="contact">
+        <div class="card">
+          <h3 style="margin:0 0 10px;">Let’s talk</h3>
+          <p class="p">Send a message and we’ll reply with next steps.</p>
+
+          <p class="p" style="margin-top:12px;">
+            Email: <span class="gold" style="font-weight:850;">salimbinumarllc@icloud.com</span><br/>
+            Phone: <span class="gold" style="font-weight:850;">+968 7696 1099</span>
+          </p>
+
+          <p class="p" style="margin-top:12px;font-size:12px;">
+            After you deploy, Netlify will capture submissions at: <b>Site → Forms</b>.
+          </p>
+        </div>
+
+        <div class="card">
+          <!-- Netlify Forms -->
+          <form name="contact" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
+            <input name="name" required placeholder="Your name" />
+            <input name="email" type="email" required placeholder="Your email" />
+            <textarea name="message" required placeholder="How can we assist you?"></textarea>
+            <button class="btn primary" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="reveal">
+      <div>© <span id="y"></span> SBU Global Investments LLC. All rights reserved.</div>
+      <div>
+        <a href="#top">Back to top</a>
+        <span style="opacity:.5;">•</span>
+        <a href="#services">Services</a>
+        <span style="opacity:.5;">•</span>
+        <a href="#contact">Contact</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    const els = Array.from(document.querySelectorAll(".reveal"));
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add("on"); io.unobserve(e.target); }
+      });
+    }, {threshold: 0.12});
+    els.forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
